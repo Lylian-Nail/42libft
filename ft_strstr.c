@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 23:20:49 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 00:17:15 by lperson-         ###   ########.fr       */
+/*   Created: 2019/08/13 12:20:01 by lperson-          #+#    #+#             */
+/*   Updated: 2019/08/13 19:00:32 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	const unsigned char	*memarea1 = s1;
-	const unsigned char	*memarea2 = s2;
+	const char *to_find;
+	char		*match;
 
-	while (n--)
+	if (!*needle)
+		return ((char*)haystack);
+	while (*haystack)
 	{
-		if (*memarea1 != *memarea2)
-			return (*memarea1 - *memarea2);
-		memarea1++;
-		memarea2++;
+		if (*haystack == *needle)
+		{
+			match = (char*)haystack;
+			to_find = needle;
+			while (*haystack == *to_find)
+			{
+				haystack++;
+				to_find++;
+			}
+			if (!*(to_find))
+				return (match);
+		}
+		if (*haystack)
+			haystack++;
 	}
-	return (0);
+	return (NULL);
 }

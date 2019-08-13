@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 23:20:49 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 00:17:15 by lperson-         ###   ########.fr       */
+/*   Created: 2019/08/13 19:10:57 by lperson-          #+#    #+#             */
+/*   Updated: 2019/08/13 19:19:13 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	const unsigned char	*memarea1 = s1;
-	const unsigned char	*memarea2 = s2;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	while (n--)
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
+	while (*str1 && *str2 && *str1 == *str2)
 	{
-		if (*memarea1 != *memarea2)
-			return (*memarea1 - *memarea2);
-		memarea1++;
-		memarea2++;
+		str1++;
+		str2++;
 	}
-	return (0);
+	return (*str1 - *str2);
 }
