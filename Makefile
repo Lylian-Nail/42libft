@@ -6,7 +6,7 @@
 #    By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/12 23:29:38 by lperson-          #+#    #+#              #
-#    Updated: 2019/08/13 19:21:50 by lperson-         ###   ########.fr        #
+#    Updated: 2019/08/13 20:52:27 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,15 @@ ft_strrchr.c \
 ft_strstr.c \
 ft_strnstr.c \
 ft_strcmp.c \
-ft_strncmp.c
+ft_strncmp.c \
+ft_atoi.c \
+ft_isalpha.c \
+ft_isdigit.c \
+ft_isalnum.c \
+ft_isascii.c \
+ft_isprint.c \
+ft_toupper.c \
+ft_tolower.c
 OBJ = $(SRC:.c=.o)
 INC = ./
 
