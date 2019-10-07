@@ -6,36 +6,38 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 15:15:32 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 19:10:13 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/09/25 00:01:04 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const char *to_find;
-	char		*match;
-	size_t		sav_len;
+	char 	*match;
+	char 	*to_find;
+	size_t	bytes;
 
 	if (!*needle)
 		return ((char*)haystack);
-	while (len-- && *haystack)
+	while (len && *haystack)
 	{
+		bytes = len--;
 		if (*haystack == *needle)
 		{
-			sav_len = len;
-			to_find = needle;
+			to_find = (char*)needle;
 			match = (char*)haystack;
-			while (sav_len-- && *haystack == *to_find)
+			while (bytes-- && *match == *to_find)
 			{
-				haystack++;
+				match++;
 				to_find++;
+				if (!*to_find)
+					return ((char*)haystack);
 			}
-			if (!*(to_find))
-				return (match);
+			haystack++;
 		}
-		if (*haystack)
+		else
 			haystack++;
 	}
 	return (NULL);

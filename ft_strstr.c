@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 12:20:01 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 19:00:32 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/09/24 23:59:24 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	const char *to_find;
-	char		*match;
+	char *match;
+	char *to_find;
 
 	if (!*needle)
 		return ((char*)haystack);
@@ -24,16 +24,17 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		if (*haystack == *needle)
 		{
 			match = (char*)haystack;
-			to_find = needle;
-			while (*haystack == *to_find)
+			to_find = (char*)needle;
+			while (*match == *to_find)
 			{
-				haystack++;
+				match++;
 				to_find++;
+				if (!*to_find)
+					return ((char*)haystack);
 			}
-			if (!*(to_find))
-				return (match);
+			haystack++;
 		}
-		if (*haystack)
+		else
 			haystack++;
 	}
 	return (NULL);
