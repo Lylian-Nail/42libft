@@ -6,7 +6,7 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 01:18:00 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 15:06:16 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/10 12:47:18 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ static	size_t	ft_strnlen(char *dst, size_t maxlen)
 	return (dst - begin);
 }
 
-size_t			ft_strlcat(char *dst, const char *src, size_t size)
+size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t		srclen;
 	size_t		destlen;
 
 	srclen = ft_strlen(src);
-	destlen = ft_strnlen(dst, size);
-	size -= destlen;
-	if (!src || !dst || size == 0)
+	destlen = ft_strnlen(dst, dstsize);
+	dstsize -= destlen;
+	if (!src || !dst || dstsize == 0)
 		return (destlen + srclen);
 	dst += destlen;
-	while (size-- > 1 && *src)
+	while (dstsize-- > 1 && *src)
 		*dst++ = *src++;
 	*dst = '\0';
 	return (destlen + srclen);
