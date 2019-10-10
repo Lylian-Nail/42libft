@@ -3,34 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 23:25:31 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/14 01:52:01 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 15:20:51 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static size_t	ft_strclen(char const *s, char const *set)
+{
+	char *begin;
+
+	if (!s)
+		return (0);
+	begin = (char*)s;
+	while (*s && ft_strchr(set, *s) == NULL)
+		s++;
+	return (s - begin);
+}
+
+char			*ft_strtrim(char const *s, char const *set)
 {
 	size_t	trimlen;
-	size_t	sav_trimlen;
 	char	*strtrim;
 
-	while (*s == ' ' || *s == '\n' || *s == '\t')
+	if (!s)
+		return (NULL);
+	while (ft_strchr(set, *s))
 		s++;
-	trimlen = ft_strlen(s);
-	while (trimlen && (s[trimlen - 1] == ' ' || s[trimlen - 1] == '\n' \
-	|| s[trimlen - 1] == '\t'))
-		trimlen--;
+	trimlen = ft_strclen(s, set);
 	strtrim = (char*)malloc(sizeof(char) * (trimlen + 1));
 	if (!strtrim)
 		return (NULL);
 	strtrim[trimlen] = '\0';
-	sav_trimlen = trimlen;
 	while (trimlen--)
-		*strtrim++ = *s++;
-	return (strtrim - sav_trimlen);
+		strtrim[trimlen] = *s++;
+	return (strtrim);
 }

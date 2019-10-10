@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 23:08:58 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 13:39:43 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/08 17:03:35 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/09 17:30:25 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft_bonus.h"
+#include <stdlib.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(void *))
 {
-	const unsigned char		*memsrc;
-	unsigned char			*memdst;
-	unsigned char			memtmp[len];
-	unsigned int			i;
+	t_list *link;
+	t_list *lst_map;
 
-	if (dst && src)
+	lst_map = NULL;
+	while (lst)
 	{
-		i = len;
-		memdst = dst;
-		memsrc = (unsigned char *)src;
-		while (len--)
-			memtmp[len] = memsrc[len];
-		while (i--)
-			memdst[i] = memtmp[i];
+		link = f(lst->content);
+		ft_lstadd_back(&lst_map, link);
+		if (!link)
+		{
+			ft_lstclear(&lst_map, free);
+			return (NULL);
+		}
+		lst = lst->next;
 	}
-	return (dst);
+	return (lst_map);
 }

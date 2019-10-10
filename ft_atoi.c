@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 19:34:26 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 20:16:44 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:09:21 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int		ft_atoi(const char *nptr)
 	int				nbr;
 	int				sign;
 
+	if (!nptr)
+		return (0);
 	nbr = 0;
 	while ((*nptr >= '\t' && *nptr <= '\r') || *nptr == ' ')
 		nptr++;

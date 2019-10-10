@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 12:07:26 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 12:16:53 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:08:07 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (!s)
+		return (NULL);
 	while (*s)
 	{
 		if (*s == c)
 			return ((char*)s);
 		s++;
 	}
-	return ((*s == c) ? (char*) s : NULL);
+	return (NULL);
 }

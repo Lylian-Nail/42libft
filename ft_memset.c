@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 22:54:57 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/12 22:57:01 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 17:23:45 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t len)
 {
 	unsigned char	*memarea;
 
-	memarea = s;
-	while (n--)
-		*memarea++ = c;
+	if (s)
+	{
+		memarea = s;
+		while (len--)
+			*memarea++ = c;
+	}
 	return (s);
 }

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 00:27:54 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 01:03:23 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/08 16:09:26 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/09 17:31:57 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft_bonus.h"
+#include <stdlib.h>
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	char	*begin;
-	int		size;
+	t_list	*new;
 
-	begin = dest;
-	size = n;
-	while (size-- && (*dest++ = *src++))
-		;
-	while (size > 0)
-	{
-		*dest++ = '\0';
-		size--;
-	}
-	return (begin);
+	if (!content)
+		return (NULL);
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/14 10:39:26 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/14 11:48:09 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 14:27:10 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,21 @@ static size_t	lenword(char const *s, char c)
 	return (lenword);
 }
 
-static void		free_strtab(char **strsplit, size_t len)
+static void		*free_strtab(char **strsplit, size_t len)
 {
 	while (len--)
 		free(strsplit[len]);
 	free(strsplit);
+	return (NULL);
 }
 
-char			**ft_strsplit(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		i;
 	int		d;
 
-	if (!(split = (char**)malloc(sizeof(char*) * (countwords(s, c) + 1))))
+	if (!s || !(split = (char**)malloc(sizeof(char*) * (countwords(s, c) + 1))))
 		return (NULL);
 	i = 0;
 	while (*s)
@@ -66,10 +67,7 @@ char			**ft_strsplit(char const *s, char c)
 		else
 		{
 			if (!(split[i] = (char*)malloc(sizeof(char) * (lenword(s, c) + 1))))
-			{
-				free_strtab(split, i);
-				return (NULL);
-			}
+				return (free_strtab(split, i));
 			d = 0;
 			while (*s && *s != c)
 				split[i][d++] = *s++;

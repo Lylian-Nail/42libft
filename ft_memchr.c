@@ -3,26 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 23:16:18 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/12 23:37:39 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 13:40:34 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t len)
 {
-	const unsigned char *memarea = s;
+	unsigned char		*memarea;
 	unsigned char		to_find;
 
-	to_find = c;
-	while (n--)
+	if (s)
 	{
-		if (*memarea == to_find)
-			return ((void *)memarea);
-		memarea++;
+		to_find = c;
+		memarea = (unsigned char*)s;
+		while (len--)
+		{
+			if (*memarea == to_find)
+				return ((void *)memarea);
+			memarea++;
+		}
 	}
 	return (NULL);
 }

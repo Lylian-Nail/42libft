@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 21:23:20 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 21:25:19 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/08 16:28:36 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/09 17:31:50 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft_bonus.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char*)malloc(size);
-	if (!ptr)
-		return (NULL);
-	while (size--)
-		ptr[size] = 0;
-	return ((void*)ptr);
+	if (*alst)
+		ft_lstlast(*alst)->next = new;
+	else
+		(*alst) = new;
 }

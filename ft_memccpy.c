@@ -3,28 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 23:01:11 by lperson-          #+#    #+#             */
-/*   Updated: 2019/09/18 12:56:55 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 17:42:09 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
 {
-	const unsigned char	*memsrc = src;
-	unsigned char		*memdest;
+	unsigned char		*memsrc;
+	unsigned char		*memdst;
 	unsigned char		c_mem;
 
-	memdest = dest;
-	c_mem = c;
-	while (n--)
+	if (dst && src)
 	{
-		*memdest = *memsrc++;
-		if (*memdest++ == c_mem)
-			return (memdest);
+		memdst = dst;
+		c_mem = c;
+		memsrc = (unsigned char*)src;
+		while (len--)
+		{
+			*memdst = *memsrc++;
+			if (*memdst++ == c_mem)
+				return ((void*)memdst);
+		}
 	}
 	return (NULL);
 }

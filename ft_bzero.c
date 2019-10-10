@@ -3,20 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 22:57:16 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/12 22:58:45 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/09 13:36:39 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stddef.h>
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t len)
 {
 	unsigned char	*memarea;
 
-	memarea = s;
-	while (n--)
-		*memarea++ = 0;
+	if (s)
+	{
+		memarea = s;
+		while (len--)
+			*memarea++ = 0;
+	}
 }

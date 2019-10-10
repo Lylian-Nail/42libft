@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 19:10:57 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/13 19:19:13 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/08 16:59:26 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/09 17:31:54 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
-{
-	unsigned char	*str1;
-	unsigned char	*str2;
+#include "libft_bonus.h"
 
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
-	while (*str1 && *str2 && *str1 == *str2)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst)
 	{
-		str1++;
-		str2++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (*str1 - *str2);
 }

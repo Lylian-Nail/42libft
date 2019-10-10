@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/14 11:56:08 by lperson-          #+#    #+#             */
-/*   Updated: 2019/08/14 11:56:53 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/08 16:12:31 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/09 17:31:51 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft_bonus.h"
 
-void	ft_putchar(char c)
+void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	write(1, &c, sizeof(char));
+	t_list	*tmp;
+
+	if (alst && *alst && new)
+	{
+		tmp = *alst;
+		*alst = new;
+		(*alst)->next = tmp;
+	}
 }
