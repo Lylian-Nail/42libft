@@ -6,7 +6,7 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:46:46 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 14:02:11 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/11 10:37:22 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		while (src[i] && i < max)
 		{
 			dst[i] = src[i];
-			i++;
-		}
-		while (i < max)
-		{
-			dst[i] = '\0';
 			i++;
 		}
 		dst[i] = '\0';

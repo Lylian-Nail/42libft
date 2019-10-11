@@ -6,7 +6,7 @@
 #    By: lperson- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/10/10 10:49:54 by lperson-         ###   ########.fr        #
+#    Updated: 2019/10/11 10:30:23 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ MKDIR = mkdir -p
 INCLUDE = ./
 HEADERS = $(addprefix $(INCLUDE), \
 libft.h)
-HEADER_BONUS = $(addprefix $(INCLUDE), \
-libft_bonus.h)
 
 SRCS = \
 ft_bzero.c \
@@ -88,11 +86,14 @@ $(NAME): $(OBJS)
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%_bonus.o: %_bonus.c $(HEADER_BONUS)
+%_bonus.o: %_bonus.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus: $(BUILD) $(OBJS) $(OBJS_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
+
+test: $(NAME) bonus main.o
+	$(CC) -o main main.o -L. -lft
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
