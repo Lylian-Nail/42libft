@@ -6,7 +6,7 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 08:11:15 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/11 10:46:22 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/11 23:00:16 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,19 +156,47 @@ void	tst_strmapi(char const *s)
 void	tst_strncmp(char const *s1, char const *s2, size_t n)
 {
 	//Choosen values.
-	printf("")
+	printf("STRNCMP: %d\t", strncmp(s1, s2, n));
+	printf("FT_STRNCMP: %d\n", ft_strncmp(s1, s2, n));
+
+	printf("\n");
+}
+
+void	tst_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	//Choosen values.
+	// printf("STRNSTR: %s\t", strnstr(haystack, needle, len));
+	printf("FT_STRNSTR: %s\n", ft_strnstr(haystack, needle, len));
+
+	printf("\n");
+}
+
+void	tst_strtrim(const char *s, const char *set)
+{
+	//Choosen values.
+	printf("FT_STRTRIM: %s\n", ft_strtrim(s, set));
+
+	printf("\n");
+}
+
+void	tst_substr(char const *s, unsigned int start, size_t len)
+{
+	//Choosen values.
+	printf("FT_SUBSTR: %s\n", ft_substr(s, start, len));
+
+	printf("\n");
 }
 
 int		main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac >= 2 && ac <= 4)
 	{
 		tst_atoi(av[1]);
 		tst_itoa(atoi(av[1]));
 		tst_strdup(av[1]);
 		tst_strmapi(av[1]);
 	}
-	else if (ac == 3)
+	if (ac >= 3 && ac <= 4)
 	{
 		//tst_putnbr_fd(atoi(av[1]), atoi(av[2]));
 		tst_split(av[1], av[2][0]);
@@ -176,13 +204,17 @@ int		main(int ac, char **av)
 		tst_strrchr(av[1], av[2][0]);
 		tst_strjoin(av[1], av[2]);
 		tst_strlcpy(av[1], atoi(av[2]));
+		tst_strtrim(av[1], av[2]);
 	}
-	else if (ac == 4)
+	if (ac == 4)
 	{
 		int		bytes = atoi(av[3]);
 		char	c = av[2][0];
 		tst_memccpy(av[1], c, bytes);
 		tst_strlcat(av[1], av[2], atoi(av[3]));
+		tst_strncmp(av[1], av[2], atoi(av[3]));
+		tst_strnstr(av[1], av[2], atoi(av[3]));
+		tst_substr(av[1], atoi(av[2]), atoi(av[3]));
 	}
 	
 	return (0);

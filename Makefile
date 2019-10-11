@@ -6,7 +6,7 @@
 #    By: lperson- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/10/11 10:30:23 by lperson-         ###   ########.fr        #
+#    Updated: 2019/10/11 22:25:56 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I$(INCLUDE)
+CFLAGS += -g
 
 AR = ar
 ARFLAGS = -crs

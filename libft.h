@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:52:43 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/11 08:08:21 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/11 23:19:58 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, t_list *(*f)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *));
 void			*ft_memset(void *s, int c, size_t len);
 void			ft_bzero(void *s, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t len);
