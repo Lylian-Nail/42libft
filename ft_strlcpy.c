@@ -6,7 +6,7 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 11:46:46 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/11 10:37:22 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/14 11:06:20 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 			dst[i] = src[i];
 			i++;
 		}
-		dst[i] = '\0';
+		if (dstsize > 0)
+			dst[i] = '\0';
 	}
 	return (ft_strlen(src));
 }

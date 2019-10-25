@@ -6,7 +6,7 @@
 #    By: lperson- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/10/11 22:25:56 by lperson-         ###   ########.fr        #
+#    Updated: 2019/10/15 09:45:53 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I$(INCLUDE)
-CFLAGS += -g
 
 AR = ar
 ARFLAGS = -crs
@@ -90,11 +89,8 @@ $(NAME): $(OBJS)
 %_bonus.o: %_bonus.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(BUILD) $(OBJS) $(OBJS_BONUS)
+bonus: $(OBJS) $(OBJS_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
-
-test: $(NAME) bonus main.o
-	$(CC) -o main main.o -L. -lft
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
