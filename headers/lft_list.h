@@ -6,13 +6,15 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 14:24:25 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/27 14:30:17 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/27 14:33:15 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LFT_LIST_H
 
 # define LFT_LIST_H
+
+# include <stddef.h>
 
 typedef struct	s_list
 {
