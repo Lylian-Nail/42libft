@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 16:25:44 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/11 08:18:30 by lperson-         ###   ########.fr       */
+/*   Created: 2019/08/13 23:25:31 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:29:19 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include "lft_string.h"
 
-t_list	*ft_lstlast(t_list *lst)
+char			*ft_strtrim(char const *s, char const *set)
 {
-	if (!lst)
+	size_t	trimlen;
+	char	*strtrim;
+
+	if (!s)
 		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	while (*s && ft_strchr(set, *s))
+		s++;
+	trimlen = ft_strlen(s);
+	while (trimlen && ft_strchr(set, s[trimlen - 1]))
+		trimlen--;
+	strtrim = (char*)malloc(sizeof(char) * (trimlen + 1));
+	if (!strtrim)
+		return (NULL);
+	strtrim[trimlen] = '\0';
+	return (ft_memcpy(strtrim, s, trimlen));
 }

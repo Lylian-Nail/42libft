@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 23:01:11 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 17:42:09 by lperson-         ###   ########.fr       */
+/*   Created: 2019/08/13 21:47:56 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:29:03 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <stdlib.h>
+#include "lft_string.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char		*memsrc;
-	unsigned char		*memdst;
-	unsigned char		c_mem;
+	int		len;
+	char	*strmapi;
 
-	if (dst && src)
-	{
-		memdst = dst;
-		c_mem = c;
-		memsrc = (unsigned char*)src;
-		while (len--)
-		{
-			*memdst = *memsrc++;
-			if (*memdst++ == c_mem)
-				return ((void*)memdst);
-		}
-	}
-	return (NULL);
+	if (!s)
+		return (NULL);
+	len = (int)ft_strlen(s);
+	strmapi = (char*)malloc(sizeof(char) * (len + 1));
+	if (!strmapi)
+		return (NULL);
+	strmapi[len] = '\0';
+	while (len--)
+		strmapi[len] = f(len, s[len]);
+	return (strmapi);
 }

@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 23:09:30 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 14:25:59 by lperson-         ###   ########.fr       */
+/*   Created: 2019/08/13 23:01:05 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:29:45 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "lft_string.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	catlen;
-	char	*strjoin;
+	char	*substr;
+	char	*begin;
+	size_t	s_len;
 
-	if (!s1 || !s2)
+	s_len = ft_strlen(s);
+	if (!s)
 		return (NULL);
-	catlen = ft_strlen(s1) + ft_strlen(s2);
-	strjoin = (char*)malloc(sizeof(char) * (catlen + 1));
-	if (!strjoin)
+	substr = (char*)malloc(sizeof(char) * (len + 1));
+	if (!substr)
 		return (NULL);
-	strjoin[catlen] = '\0';
-	while (*s1)
-		*strjoin++ = *s1++;
-	while (*s2)
-		*strjoin++ = *s2++;
-	return (strjoin - catlen);
+	begin = substr;
+	while (start < s_len && s[start] && len--)
+	{
+		*substr++ = s[start];
+		start++;
+	}
+	*substr = '\0';
+	return (begin);
 }

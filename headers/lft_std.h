@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   lft_std.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/12 22:57:16 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/09 13:36:39 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/27 14:21:47 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:23:21 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef LFT_STD_H
 
-void	ft_bzero(void *s, size_t len)
-{
-	unsigned char	*memarea;
+# define LFT_STD_H
 
-	if (s)
-	{
-		memarea = s;
-		while (len--)
-			*memarea++ = 0;
-	}
-}
+int		ft_atoi(const char *str);
+char	*ft_itoa(int n);
+
+#endif

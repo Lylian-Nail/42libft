@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   lft_io.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 16:28:36 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/14 14:15:21 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/27 14:23:28 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:24:00 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LFT_IO_H
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
-{
-	if (alst)
-	{
-		if (*alst)
-			ft_lstlast(*alst)->next = new;
-		else
-			(*alst) = new;
-	}
-}
+# define LFT_IO_H
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
+
+#endif

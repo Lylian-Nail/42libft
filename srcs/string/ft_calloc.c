@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 17:03:35 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/14 13:57:42 by lperson-         ###   ########.fr       */
+/*   Created: 2019/10/07 13:23:06 by lperson-          #+#    #+#             */
+/*   Updated: 2019/10/27 14:10:39 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list *link;
-	t_list *lst_map;
+	size_t			bytes;
+	unsigned char	*s;
 
-	lst_map = NULL;
-	while (lst)
-	{
-		link = ft_lstnew(f(lst->content));
-		if (!link)
-			return (NULL);
-		ft_lstadd_back(&lst_map, link);
-		lst = lst->next;
-	}
-	return (lst_map);
+	bytes = count * size;
+	s = (unsigned char*)malloc(bytes);
+	if (!s)
+		return (NULL);
+	while (bytes--)
+		s[bytes] = 0;
+	return ((void*)s);
 }
