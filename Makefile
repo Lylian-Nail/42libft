@@ -5,56 +5,53 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lperson- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/10/27 13:09:48 by lperson-         ###   ########.fr        #
+#    Created: 2019/10/27 14:38:10 by lperson-          #+#    #+#              #
+#    Updated: 2019/10/29 17:48:18 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf
+TST = a.out
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-CFLAGS += -I$(INCLUDE)
+MAKE = make -s -C
+RM = rm -f
 
 AR = ar
 ARFLAGS = -crs
 
-RM = rm -rf
-MKDIR = mkdir -p
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -I $(LIBFT_INC) -I headers/
+CFLAGS += -g
 
-INCLUDE = headers/
-HEADERS = $(addprefix $(INCLUDE), \
-libft.h)
+INC = ./
 
-PATHB = build/
-PATHS = srcs/
-PATHS_STR = $(addprefix $(PATHS), string/)
-PATHS_CTYPE = $(addprefix $(PATHS), ctype/)
-PATHS_IO = $(addprefix $(PATHS), io/)
-PATHS_STD = $(addprefix $(PATHS), std/)
-PATHS_LST = $(addprefix $(PATHS), list/)
+LIBFT = $(addprefix $(LIBFT_PATH), libft.a)
+LIBFT_PATH = libft/
+LIBFT_INC = libft/headers/
 
-include $(addprefix $(PATHS_STR), mod.mk)
-include $(addprefix $(PATHS_CTYPE), mod.mk)
-include $(addprefix $(PATHS_IO), mod.mk)
-include $(addprefix $(PATHS_STD), mod.mk)
-include $(addprefix $(PATHS_LST), mod.mk)
+SRCS = 
+SRCS_T = main.c srcs/buffer.c srcs/ft_printf.c srcs/parser.c srcs/formats/ft_fill.c 
 
-OBJS = $(addprefix $(PATHB), $(notdir $(SRCS:.c=.o)))
+OBJS = $(SRCS:.c=.o)
+OBJS_T = $(SRCS_T:.c=.o)
 
-.PHONY = all bonus clean fclean re
-all: $(NAME)
+all: $(TST)
 
-$(NAME): $(PATHB) $(OBJS)
+$(TST): $(SRCS_T) | $(LIBFT)
+	$(CC) $(CFLAGS) $(SRCS_T) -o $@ -L$(LIBFT_PATH) -lft
+
+$(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $(OBJS)
 
-$(PATHB):
-	$(MKDIR) $(PATHB)
+$(LIBFT):
+	$(MAKE) $(LIBFT_PATH)
+
+%.o: %.c | $(LIBFT)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(PATHB)
+	$(RM) $(OBJS)
 
-fclean: clean
+fclean:
 	$(RM) $(NAME)
-
-re: fclean all
