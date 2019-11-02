@@ -6,7 +6,7 @@
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 14:20:46 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/27 14:21:31 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/10/27 15:28:00 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ int	ft_isprint(int c);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
 
-# endif
+#endif
