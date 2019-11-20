@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lperson- <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/10/27 13:09:48 by lperson-         ###   ########.fr        #
+#    Updated: 2019/11/20 17:38:30 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ ARFLAGS = -crs
 
 RM = rm -rf
 MKDIR = mkdir -p
+MAKE = make -C -s
 
 INCLUDE = headers/
 HEADERS = $(addprefix $(INCLUDE), \

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lft_io.h                                           :+:      :+:    :+:   */
+/*   ft_strcjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 14:23:28 by lperson-          #+#    #+#             */
-/*   Updated: 2019/11/20 18:04:28 by lperson-         ###   ########.fr       */
+/*   Created: 2019/11/20 17:41:57 by lperson-          #+#    #+#             */
+/*   Updated: 2019/11/20 17:52:29 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_IO_H
+#include <stdlib.h>
+#include "lft_string.h"
 
-# define LFT_IO_H
+char	*ft_strcjoin(char const *s1, char const *s2, int c)
+{
+	size_t	jlen;
+	char	*join;
 
-# define BUFFER_SIZE	(64)
-# define OPEN_MAX		(4096)
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		get_next_line(int fd, char **line);
-int		ft_printf(char const *format, ...);
-
-#endif
+	jlen = ft_strclen(s1, c) + ft_strclen(s2, c);
+	join = (char*)malloc(sizeof(char) * (jlen + 1));
+	if (!join)
+		return (NULL);
+	while (*s1 && *s1 != c)
+		*join++ = *s1++;
+	while (*s2 && *s2 != c)
+		*join++ = *s2++;
+	*join = '\0';
+	return (join - jlen);
+}

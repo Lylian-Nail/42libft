@@ -7,11 +7,15 @@ ft_memccpy.c \
 ft_memmove.c \
 ft_memchr.c \
 ft_memcmp.c \
+ft_strdel.c \
 ft_strlen.c \
+ft_strclen.c \
 ft_strlcpy.c \
 ft_strlcat.c \
 ft_strdup.c \
+ft_strcdup.c \
 ft_strjoin.c \
+ft_strcjoin.c \
 ft_strtrim.c \
 ft_strchr.c \
 ft_strrchr.c \
