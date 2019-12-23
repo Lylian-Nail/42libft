@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lft_io.h                                           :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 14:23:28 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/08 16:59:57 by lperson-         ###   ########.fr       */
+/*   Created: 2019/11/22 13:25:58 by lperson-          #+#    #+#             */
+/*   Updated: 2019/11/22 13:26:37 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_IO_H
-
-# define LFT_IO_H
-
-# define BUFFER_SIZE	(64)
-# define OPEN_MAX		(4096)
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putendl_fd(char const *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		get_next_line(int fd, char **line);
-int		ft_printf(char const *format, ...);
-
-#endif
+int		ft_isblank(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n');
+}

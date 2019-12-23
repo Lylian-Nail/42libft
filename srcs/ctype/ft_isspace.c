@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclen.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/20 17:40:29 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/16 15:22:26 by lperson-         ###   ########.fr       */
+/*   Created: 2019/12/23 11:46:39 by lperson-          #+#    #+#             */
+/*   Updated: 2019/12/23 11:48:29 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_string.h"
-
-size_t	ft_strclen(char const *str, char const *charset)
+int		ft_isspace(int c)
 {
-	char const	*begin;
-
-	begin = str;
-	while (*str && !ft_strchr(charset, *str))
-		str++;
-	return (str - begin);
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
 }

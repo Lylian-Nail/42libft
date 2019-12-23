@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+        */
+/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 13:41:48 by lperson-          #+#    #+#             */
-/*   Updated: 2019/11/20 17:48:45 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/12/16 15:25:41 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ static int		append_line(char **line, char *buffer)
 
 	has_line = ft_strchr(buffer, '\n');
 	if (!*line)
-		*line = ft_strcdup(buffer, '\n');
+		*line = ft_strcdup(buffer, "\n");
 	else
 	{
-		tmp = ft_strcjoin(*line, buffer, '\n');
+		tmp = ft_strcjoin(*line, buffer, "\n");
 		free(*line);
 		*line = tmp;
 	}
@@ -74,7 +74,8 @@ int				get_next_line(int fd, char **line)
 	tmp = NULL;
 	if (fd < 0 || fd > OPEN_MAX - 1)
 		return (-1);
-	ret = append_line(&tmp, buffer[fd]);
+	if (*buffer[fd])
+		ret = append_line(&tmp, buffer[fd]);
 	while (ret == 0 && (bytes = read(fd, buffer[fd], BUFFER_SIZE)) > 0)
 	{
 		buffer[fd][bytes] = '\0';
@@ -83,5 +84,5 @@ int				get_next_line(int fd, char **line)
 	if (!line || bytes == -1 || ret == -1)
 		return (ft_strdel(&tmp));
 	*line = tmp;
-	return (ret);
+	return (tmp || bytes ? 1 : 0);
 }

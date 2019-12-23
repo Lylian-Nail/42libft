@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclen.c                                       :+:      :+:    :+:   */
+/*   ft_append_buffer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/20 17:40:29 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/16 15:22:26 by lperson-         ###   ########.fr       */
+/*   Created: 2019/11/22 11:38:42 by lperson-          #+#    #+#             */
+/*   Updated: 2019/11/23 21:25:36 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lft_string.h"
+#include <stdlib.h>
 
-size_t	ft_strclen(char const *str, char const *charset)
+char	*ft_append_buffer(char **buffer, char *str)
 {
-	char const	*begin;
+	char	*tmp;
 
-	begin = str;
-	while (*str && !ft_strchr(charset, *str))
-		str++;
-	return (str - begin);
+	if (!*buffer)
+		*buffer = ft_strdup(str);
+	else
+	{
+		tmp = ft_strjoin(*buffer, str);
+		free(*buffer);
+		*buffer = tmp;
+	}
+	return (*buffer);
 }

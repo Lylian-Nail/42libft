@@ -5,7 +5,9 @@ ft_isalnum.c \
 ft_isprint.c \
 ft_isascii.c \
 ft_tolower.c \
-ft_toupper.c)
+ft_toupper.c \
+ft_isblank.c \
+ft_isspace.c)
 
 $(PATHB)%.o: $(PATHS_CTYPE)%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@

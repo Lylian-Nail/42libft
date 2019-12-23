@@ -6,7 +6,7 @@
 #    By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/11/20 17:38:30 by lperson-         ###   ########.fr        #
+#    Updated: 2019/11/23 19:47:34 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I$(INCLUDE)
+CFLAGS += -g
 
 AR = ar
 ARFLAGS = -crs

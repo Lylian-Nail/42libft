@@ -23,7 +23,9 @@ ft_strncmp.c \
 ft_strnstr.c \
 ft_substr.c \
 ft_split.c \
-ft_strmapi.c)
+ft_strmapi.c \
+ft_append_buffer.c \
+ft_strjoin_sep.c)
 
 $(PATHB)%.o: $(PATHS_STR)%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@

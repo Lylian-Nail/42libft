@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lft_ctype.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lperson- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 14:20:46 by lperson-          #+#    #+#             */
-/*   Updated: 2019/10/27 15:28:00 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/12/23 11:50:40 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
+int	ft_isblank(int c);
+int	ft_isspace(int c);
 
 #endif
