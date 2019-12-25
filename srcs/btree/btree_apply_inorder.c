@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append_buffer.c                                 :+:      :+:    :+:   */
+/*   btree_apply_inorder.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/22 11:38:42 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/25 13:13:38 by lperson-         ###   ########.fr       */
+/*   Created: 2019/12/25 14:04:31 by lperson-          #+#    #+#             */
+/*   Updated: 2019/12/25 14:08:31 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_string.h"
-#include <stdlib.h>
+#include "lft_btree.h"
 
-char	*ft_append_buffer(char **buffer, char *str)
+void	btree_apply_indorder(t_btree *root, void (*applyf)(void *))
 {
-	char	*tmp;
+	if (!root)
+		return;
 
-	if (!*buffer)
-		*buffer = ft_strdup(str);
-	else
-	{
-		tmp = ft_strjoin(*buffer, str);
-		free(*buffer);
-		*buffer = tmp;
-	}
-	return (*buffer);
+	btree_apply_indorder(root->left, applyf);
+	applyf(root->item);
+	btree_apply_indorder(root->right, applyf);
 }

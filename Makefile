@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lperson- <lylian.person-gay@protonmail.    +#+  +:+       +#+         #
+#    By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 13:35:26 by lperson-          #+#    #+#              #
-#    Updated: 2019/11/23 19:47:34 by lperson-         ###   ########.fr        #
+#    Updated: 2019/12/25 13:22:40 by lperson-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,12 +35,14 @@ PATHS_CTYPE = $(addprefix $(PATHS), ctype/)
 PATHS_IO = $(addprefix $(PATHS), io/)
 PATHS_STD = $(addprefix $(PATHS), std/)
 PATHS_LST = $(addprefix $(PATHS), list/)
+PATHS_BTREE = $(addprefix $(PATHS), btree/)
 
 include $(addprefix $(PATHS_STR), mod.mk)
 include $(addprefix $(PATHS_CTYPE), mod.mk)
 include $(addprefix $(PATHS_IO), mod.mk)
 include $(addprefix $(PATHS_STD), mod.mk)
 include $(addprefix $(PATHS_LST), mod.mk)
+include $(addprefix $(PATHS_BTREE), mod.mk)
 
 OBJS = $(addprefix $(PATHB), $(notdir $(SRCS:.c=.o)))
 

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_append_buffer.c                                 :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/22 11:38:42 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/25 13:13:38 by lperson-         ###   ########.fr       */
+/*   Created: 2019/12/25 13:23:30 by lperson-          #+#    #+#             */
+/*   Updated: 2019/12/25 13:25:22 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_string.h"
 #include <stdlib.h>
+#include "lft_btree.h"
 
-char	*ft_append_buffer(char **buffer, char *str)
+t_btree		*btree_create_node(void *item)
 {
-	char	*tmp;
+	t_btree	*new;
 
-	if (!*buffer)
-		*buffer = ft_strdup(str);
-	else
-	{
-		tmp = ft_strjoin(*buffer, str);
-		free(*buffer);
-		*buffer = tmp;
-	}
-	return (*buffer);
+	new = (t_btree*)malloc(sizeof(t_btree));
+	if (!new)
+		return (NULL);
+	new->item = item;
+	new->left = NULL;
+	new->right = NULL;
+	return (new);
 }
