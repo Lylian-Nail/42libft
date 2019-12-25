@@ -3,12 +3,12 @@ ft_putchar_fd.c \
 ft_putstr_fd.c \
 ft_putendl_fd.c \
 ft_putnbr_fd.c \
-get_next_line.c)
+get_next_line.c \
+buffer.c)
 
 PATHS_PRINF = $(addprefix $(PATHS_IO), ft_printf/)
 
 SRCS += $(addprefix $(PATHS_PRINF), \
-buffer.c \
 usefull_func1.c \
 usefull_func2.c \
 parser1.c \
