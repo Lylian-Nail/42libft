@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/25 22:51:36 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/26 00:05:07 by lperson-         ###   ########.fr       */
+/*   Updated: 2019/12/26 00:59:42 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int (*cmpf)(void *, void *))
 	t_btree		*cpy;
 	t_btree		*new;
 
-	cpy = *root;
 	new = btree_create_node(item);
 	if (!new)
 		btree_clear(root, free);
 	if (!*root)
 		*root = new;
+	cpy = *root;
 	while (cpy != new)
 	{
 		if (cmpf(item, cpy->item) < 0)
