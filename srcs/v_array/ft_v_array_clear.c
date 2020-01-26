@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_create_node.c                                :+:      :+:    :+:   */
+/*   ft_v_array_clear.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/25 13:23:30 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/25 13:25:22 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/11 20:40:08 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/21 19:29:39 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "lft_btree.h"
+#include "lft_v_array.h"
 
-t_btree		*btree_create_node(void *item)
+void	ft_v_array_clear(t_v_array *array, void (*delf)(void *))
 {
-	t_btree	*new;
+	unsigned	i;
 
-	new = (t_btree*)malloc(sizeof(t_btree));
-	if (!new)
-		return (NULL);
-	new->item = item;
-	new->left = NULL;
-	new->right = NULL;
-	return (new);
+	i = 0;
+	while (i < array->len)
+		delf(array->data[i++]);
+	free(array->data);
+	array->data = NULL;
+	array->len = 0;
+	array->size = 0;
 }

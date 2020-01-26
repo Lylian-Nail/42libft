@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lft_stddef.h                                       :+:      :+:    :+:   */
+/*   lft_v_array.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/28 10:45:20 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/09 20:42:11 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/10 04:05:22 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/11 21:17:21 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_STDDEF_H
+#ifndef LFT_V_ARRAY_H
 
-# define LFT_STDDEF_H
+# define LFT_V_ARRAY_H
 
-typedef enum	e_std
-{
-	STD_IN,
-	STD_OUT,
-	STD_ERR
-}				t_std;
+# include <stddef.h>
+
+typedef struct	s_v_array {
+	void	**data;
+	size_t	len;
+	size_t	size;
+}				t_v_array;
+
+t_v_array	ft_v_array_new(size_t size);
+int			ft_v_array_add(t_v_array *array, void *data);
+int			ft_v_array_set(t_v_array *array, int i, void *data);
+void		*ft_v_array_get(t_v_array *array, int i);
+void		ft_v_array_clear(t_v_array *array, void (*delf)(void *));
 
 #endif

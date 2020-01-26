@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_clear.c                                      :+:      :+:    :+:   */
+/*   ft_v_array_set.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/25 23:50:58 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/26 02:27:20 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/11 20:32:48 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/11 21:16:53 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "lft_btree.h"
+#include "lft_v_array.h"
 
-void	btree_clear(t_btree **root, void (*freef)(void *))
+int		ft_v_array_set(t_v_array *array, int i, void *data)
 {
-	if (!*root)
-		return ;
-	btree_clear(&(*root)->left, freef);
-	freef((*root)->item);
-	btree_clear(&(*root)->right, freef);
-	free(*root);
-	*root = NULL;
+	if ((unsigned)i >= array->len)
+		return (ft_v_array_add(array, data));
+	else
+		array->data[i] = data;
+	return (1);
 }

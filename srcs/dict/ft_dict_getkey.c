@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_dict_getkey.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/23 11:46:39 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/09 20:42:29 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/26 12:29:17 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/26 12:36:34 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isspace(int c)
+#include "lft_dict.h"
+
+void	*ft_dict_getkey(t_dict *dict, void *key, int cmpf(void *s1, void *s2))
 {
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
+	void	*actual_key;
+	int		i;
+
+	i = 0;
+	while ((actual_key = ft_v_array_get(&dict->keys, i)) != NULL)
+	{
+		if (cmpf(actual_key, key) == 0)
+			return (ft_v_array_get(&dict->values, i));
+		i++;
+	}
+	return (NULL);
 }

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_inorder.c                              :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/25 14:04:31 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/26 00:53:42 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/08 23:32:25 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/08 23:33:49 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_btree.h"
+#include <stddef.h>
 
-void	btree_apply_inorder(t_btree *root, void (*applyf)(void *))
+size_t	ft_strnlen(char const *s, size_t n)
 {
-	if (!root)
-		return;
-	btree_apply_inorder(root->left, applyf);
-	applyf(root->item);
-	btree_apply_inorder(root->right, applyf);
+	char const	*begin;
+
+	begin = s;
+	while (n-- && *s)
+		s++;
+	return (s - begin);
 }

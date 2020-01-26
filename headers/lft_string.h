@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 14:18:29 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/16 15:23:16 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/01/11 20:11:51 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memchr(const void *src, int c, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t len);
 void	*ft_calloc(size_t count, size_t size);
+void	ft_crealloc(void **s, size_t old_size, size_t new_size);
+void	*ft_memdup(const void *s, size_t len);
+void	*ft_memdel(void **s);
 int		ft_strdel(char **str);
 size_t	ft_strlen(const char *s);
+size_t	ft_strnlen(const char *s, size_t n);
 size_t	ft_strclen(char const *s, char const *charset);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
@@ -34,6 +38,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 char	*ft_strdup(const char *s);
+char	*ft_strndup(const char *s, size_t n);
 char	*ft_strcdup(const char *s, char const *charset);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   btree_apply_postorder.c                            :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/25 14:13:57 by lperson-          #+#    #+#             */
-/*   Updated: 2019/12/25 14:15:17 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/09 12:45:16 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/09 12:46:39 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lft_btree.h"
+#include <stdlib.h>
+#include "lft_string.h"
 
-void	btree_apply_postorder(t_btree *root, void (*applyf)(void *))
+void	*ft_memdup(const void *s, size_t n)
 {
-	if (!root)
-		return ;
-	btree_apply_postorder(root->left, applyf);
-	btree_apply_postorder(root->right, applyf);
-	applyf(root->item);
+	void	*dup;
+
+	dup = malloc(n);
+	if (!dup)
+		return (NULL);
+	return (ft_memcpy(dup, s, n));
 }
