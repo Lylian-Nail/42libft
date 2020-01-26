@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lft_std.h                                          :+:      :+:    :+:   */
+/*   ft_clearenv.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 14:21:47 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:36:46 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/26 17:16:04 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/26 17:19:55 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_STD_H
+#include <stdlib.h>
+#include "lft_string.h"
 
-# define LFT_STD_H
+extern char **g_environ;
 
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-int		ft_initenv(const char *envp[]);
-void	ft_clearenv(void);
-char	*ft_getenv(const char *name);
-int		ft_setenv(const char *name, const char *value, int overwrite);
-int		ft_unsetenv(const char *name);
+void	ft_clearenv(void)
+{
+	int		i;
 
-#endif
+	i = 0;
+	if (!g_environ)
+		return ;
+	while (g_environ[i])
+		ft_strdel((char**)&g_environ[i++]);
+	free(g_environ);
+	g_environ = NULL;
+}

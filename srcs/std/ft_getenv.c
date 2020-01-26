@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lft_std.h                                          :+:      :+:    :+:   */
+/*   ft_getenv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/27 14:21:47 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:36:46 by lperson-         ###   ########.fr       */
+/*   Created: 2020/01/26 14:58:43 by lperson-          #+#    #+#             */
+/*   Updated: 2020/01/26 17:15:11 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_STD_H
+#include <errno.h>
+#include "lft_string.h"
 
-# define LFT_STD_H
+extern char	**g_environ;
 
-int		ft_atoi(const char *str);
-char	*ft_itoa(int n);
-int		ft_initenv(const char *envp[]);
-void	ft_clearenv(void);
-char	*ft_getenv(const char *name);
-int		ft_setenv(const char *name, const char *value, int overwrite);
-int		ft_unsetenv(const char *name);
+char	*ft_getenv(const char *name)
+{
+	size_t	len;
+	int		i;
 
-#endif
+	i = 0;
+	len = ft_strlen(name);
+	if (!name || !*name || ft_strchr(name, '='))
+	{
+		errno = EINVAL;
+		return (NULL);
+	}
+	while (g_environ[i])
+	{
+		if (ft_strncmp(g_environ[i], name, len) == 0)
+			return (g_environ[i] + len + 1);
+		i++;
+	}
+	return (NULL);
+}
