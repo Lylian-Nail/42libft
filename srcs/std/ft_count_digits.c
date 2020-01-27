@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/27 14:18:49 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/27 14:22:52 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:11:01 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_count_digits(int nbr)
 {
 	size_t		len;
-	unsigned	nb;	
+	unsigned	nb;
 
 	len = (nbr < 0) ? 1 : 0;
 	nb = (nbr < 0) ? -nbr : nbr;

@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 16:53:33 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:23:01 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:11:30 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t	len_env(const char *env[])
 	return (i);
 }
 
-static int		free2Dtab(char **tab, size_t len)
+static int		free_2d_tab(char **tab, size_t len)
 {
 	while (len--)
 		ft_strdel((char**)&tab[len]);
@@ -46,7 +46,7 @@ int				ft_initenv(const char *envp[])
 	while (envp[i])
 	{
 		if (!(environ[i] = ft_strdup(envp[i])))
-			return (free2Dtab(environ, i));
+			return (free_2d_tab(environ, i));
 		i++;
 	}
 	g_environ = environ;

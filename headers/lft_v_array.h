@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/10 04:05:22 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/11 21:17:21 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/01/27 17:10:43 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct	s_v_array {
 	size_t	size;
 }				t_v_array;
 
-t_v_array	ft_v_array_new(size_t size);
-int			ft_v_array_add(t_v_array *array, void *data);
-int			ft_v_array_set(t_v_array *array, int i, void *data);
-void		*ft_v_array_get(t_v_array *array, int i);
-void		ft_v_array_clear(t_v_array *array, void (*delf)(void *));
+t_v_array		ft_v_array_new(size_t size);
+int				ft_v_array_add(t_v_array *array, void *data);
+int				ft_v_array_set(t_v_array *array, int i, void *data);
+void			*ft_v_array_get(t_v_array *array, int i);
+void			ft_v_array_clear(t_v_array *array, void (*delf)(void *));
 
 #endif
