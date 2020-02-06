@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 14:18:29 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/11 20:11:51 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:40:43 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_append_buffer(char **buffer, char *str);
 char	*ft_strjoin_sep(char const *s1, char const *s2, char sep);
+void	ft_free2d_tab(char **tab, size_t len);
+size_t	ft_len2d_tab(char *tab[]);
+char	**ft_dup2d_tab(char *tab[]);
 
 #endif

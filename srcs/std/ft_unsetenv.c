@@ -6,7 +6,7 @@
 /*   By: lperson- <lperson-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 17:26:18 by lperson-          #+#    #+#             */
-/*   Updated: 2020/01/26 17:47:20 by lperson-         ###   ########.fr       */
+/*   Updated: 2020/02/06 14:24:46 by lperson-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int				ft_unsetenv(const char *name)
 			free(g_environ[i]);
 		i++;
 	}
-	environ[i] = NULL;
+	environ[len] = NULL;
 	free(g_environ);
 	g_environ = environ;
 	return (1);

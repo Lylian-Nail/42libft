@@ -30,7 +30,10 @@ ft_substr.c \
 ft_split.c \
 ft_strmapi.c \
 ft_append_buffer.c \
-ft_strjoin_sep.c)
+ft_strjoin_sep.c \
+ft_free2d_tab.c \
+ft_len2d_tab.c \
+ft_dup2d_tab.c)
 
 $(PATHB)%.o: $(PATHS_STR)%.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
